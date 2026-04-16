@@ -3,7 +3,7 @@
 A modern **React + TypeScript** product management UI built with **Vite** and styled with **Tailwind CSS**.  
 The app allows users to view, search, create, edit, and delete products with category and color selection, while persisting data in browser local storage.
 
-## Live Behavior
+## Key Features
 
 - Product grid with reusable `ProductCard` components
 - Add product modal with field validation
@@ -99,7 +99,7 @@ Defined in `src/validation/index.ts`:
 
 - Product title: required, minimum 8 characters
 - Description: required, between 20 and 200 characters
-- Image URL: must match URL pattern
+- Image URL: must match a URL-like format accepted by the app regex (optional `http://` or `https://`, valid domain, and optional path/query)
 - Price: required and numeric
 
 ## Deployment
