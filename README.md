@@ -1,54 +1,121 @@
-# React + TypeScript + Vite
+# Product Builder TS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **React + TypeScript** product management UI built with **Vite** and styled with **Tailwind CSS**.  
+The app allows users to view, search, create, edit, and delete products with category and color selection, while persisting data in browser local storage.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Product grid with reusable `ProductCard` components
+- Add product modal with field validation
+- Edit product modal with prefilled values
+- Delete confirmation modal
+- Product title search
+- Color picker for product variants
+- Category selector with image previews
+- Toast notifications for user actions
+- Local persistence via `localStorage`
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend:** React 19, TypeScript
+- **Build Tooling:** Vite 6
+- **Styling:** Tailwind CSS 4
+- **UI Utilities:** Headless UI, Heroicons, React Icons
+- **Validation:** Custom validation helpers (TypeScript)
+- **Notifications:** React Toastify
+- **Utilities:** UUID, clsx
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Project Structure
+
+```text
+src/
+├── Components/
+│   ├── ui/
+│   ├── Image.tsx
+│   └── ProductCard.tsx
+├── data/
+│   ├── categories.ts
+│   ├── colors.ts
+│   └── productsList.ts
+├── Interfaces/
+├── Types/
+├── utils/
+├── validation/
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1) Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Node.js 18+
+- npm 9+
+
+### 2) Install dependencies
+
+```bash
+npm ci
 ```
+
+### 3) Run development server
+
+```bash
+npm run dev
+```
+
+Default local URL: `http://localhost:5173`
+
+### 4) Build for production
+
+```bash
+npm run build
+```
+
+### 5) Preview production build
+
+```bash
+npm run preview
+```
+
+## Available Scripts
+
+- `npm run dev` — start Vite dev server
+- `npm run build` — TypeScript project build (`tsc -b`) + Vite build
+- `npm run lint` — run ESLint
+- `npm run preview` — preview production output
+- `npm run deploy` — deploy `dist/` to GitHub Pages via `gh-pages`
+
+## Data & State Notes
+
+- Initial product data is seeded from `src/data/productsList.ts`
+- Product categories and color options come from `src/data/categories.ts` and `src/data/colors.ts`
+- Runtime state is managed in `src/App.tsx`
+- Product list is persisted under local storage key: `storedProducts`
+
+## Validation Rules
+
+Defined in `src/validation/index.ts`:
+
+- Product title: required, minimum 8 characters
+- Description: required, between 20 and 200 characters
+- Image URL: must match a URL-like format accepted by the app regex (optional `http://` or `https://`, valid domain, and optional path/query)
+- Price: required and numeric
+
+## Deployment
+
+The project includes GitHub Pages deployment support:
+
+```bash
+npm run deploy
+```
+
+Vite base path is configured in `vite.config.ts` as:
+
+```ts
+base: '/productBuilderTS/'
+```
+
+## License
+
+This project is available for learning and personal use. Add a formal license file if you plan to distribute it publicly.
