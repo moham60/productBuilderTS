@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# Product Builder TS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern product catalog builder built with **React**, **TypeScript**, and **Vite**.  
+The app lets users browse products and perform core product management actions (create, search, edit, and delete) through a clean UI.
 
-Currently, two official plugins are available:
+## Highlights
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Product listing with responsive card layout
+- Add new products using validated form inputs
+- Edit and delete existing products
+- Product search by title
+- Category and color selection support
+- Local persistence using `localStorage`
+- Toast notifications for user actions
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Headless UI
+- React Toastify
+- ESLint
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Project Structure
+
+```text
+src/
+  Components/       # Reusable UI and feature components
+  Interfaces/       # Shared TypeScript interfaces
+  Types/            # Shared TypeScript types
+  data/             # Seed data (products, categories, colors)
+  utils/            # Utility helpers
+  validation/       # Form validation logic
+  App.tsx           # Main app composition and state handling
+  main.tsx          # React app entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Node.js 18+
+- npm 9+
+
+### Installation
+
+```bash
+npm ci
 ```
+
+### Run in Development
+
+```bash
+npm run dev
+```
+
+Vite will start the app on `http://localhost:5173` by default.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Available Scripts
+
+- `npm run dev` — start development server
+- `npm run build` — run TypeScript build (`tsc -b`) and Vite production build
+- `npm run preview` — preview the built app locally
+- `npm run lint` — run ESLint checks
+- `npm run deploy` — deploy `dist/` to GitHub Pages (`gh-pages`)
+
+## Deployment
+
+This project includes GitHub Pages deployment scripts:
+
+```bash
+npm run predeploy
+npm run deploy
+```
+
+## License
+
+This project is available for educational and personal use.
