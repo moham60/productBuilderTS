@@ -1,54 +1,119 @@
-# React + TypeScript + Vite
+# 🚀 Product Builder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern product management application built with **React + TypeScript + Vite**.
+It allows users to create, edit, and manage products with a clean and responsive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Preview
 
-## Expanding the ESLint configuration
+> Add screenshots here (recommended)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+/screenshots/home.png
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
+
+## ✨ Features
+
+* 🛍️ Create, edit, and delete products
+* 🎨 Select multiple colors for each product
+* 🖼️ Image support for products & categories
+* ⚡ Fast performance using Vite
+* 📱 Responsive design (mobile-friendly)
+* 🔍 Clean and reusable component structure
+* ♻️ Shared UI components (Image, Button, Modal, etc.)
+
+---
+
+## 🧱 Tech Stack
+
+* **Frontend:** React + TypeScript
+* **Build Tool:** Vite
+* **Styling:** Tailwind CSS
+* **State Management:** React Hooks
+* **Deployment:** GitHub Pages
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│
+├── components/
+│   ├── ui/            # Reusable UI components
+│   ├── Image.tsx      # Shared optimized image component
+│   ├── ProductCard.tsx
+│
+├── Interfaces/        # TypeScript interfaces
+├── utils/             # Helper functions
+├── App.tsx
+└── main.tsx
+```
+
+---
+
+## ⚙️ Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/moham60/productBuilderTS.git
+
+# Go into the project
+cd productBuilderTS
+
+# Install dependencies
+npm install
+
+# Run locally
+npm run dev
+```
+
+---
+
+## 🚀 Deployment (GitHub Pages)
+
+```bash
+npm run build
+npm run deploy
+```
+
+Make sure your `vite.config.js` includes:
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+base: '/productBuilderTS/'
 ```
+
+---
+
+## ⚡ Performance Optimizations
+
+* Lazy loading for non-critical images
+* Priority loading for above-the-fold content
+* Optimized component reusability
+* Reduced unnecessary re-renders
+
+---
+
+## 🧠 Future Improvements
+
+* 🔐 Authentication system
+* ☁️ Backend integration (Supabase / Firebase)
+* 📦 Drag & drop product builder
+* 🔎 Search & filtering system
+* 🌍 Multi-language support
+
+---
+
+## 👨‍💻 Author
+
+**Mohamed**
+GitHub: https://github.com/moham60
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
